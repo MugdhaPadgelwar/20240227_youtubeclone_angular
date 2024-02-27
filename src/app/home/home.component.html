@@ -1,0 +1,174 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="youtube-dash">
+    <div class="header">
+      <div class="logo">
+        <i id="menu" class="fa-solid fa-bars"></i>
+        <img id="youtube-img" src="youtube-logo.png" />
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-microphone"></i>
+      </div>
+
+      <div class="header-profile">
+        <div class="notification">
+          <i class="fa-solid fa-video"></i>
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <a href="">
+          <img
+            class="profile-user"
+            (click)="settingMenuToggle()"
+            src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295398_1280.png"
+          />
+        </a>
+      </div>
+      <div class="settings-menu">
+        <div id="dark-btn">
+          <span></span>
+        </div>
+        <div class="settings-menu-inner">
+          <div class="user-profile">
+            <img src="https://i.postimg.cc/cHg22LhR/profile-pic.png" />
+            <div>
+              <p>John Nicholson</p>
+              <a href="profile.html">See your profile</a>
+            </div>
+          </div>
+          <hr />
+          <div class="user-profile">
+            <img src="https://i.postimg.cc/hv3nx52s/feedback.png" />
+            <div>
+              <p>Give Feedback</p>
+              <a href="#">Help us to improve the new design</a>
+            </div>
+          </div>
+          <hr />
+          <div class="settings-links">
+            <img
+              src="https://i.postimg.cc/QCcPNYRV/setting.png"
+              class="settings-icon"
+            />
+            <a href="#"
+              >Settings & Privacy
+              <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img
+              src="https://i.postimg.cc/C5tydfK6/help.png"
+              class="settings-icon"
+            />
+            <a href="#"
+              >Help & Support<img
+                src="https://i.postimg.cc/RF1dBMWr/arrow.png"
+                width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img
+              src="https://i.postimg.cc/5yt1XVSj/display.png"
+              class="settings-icon"
+            />
+            <a href="#"
+              >Display & Accessibility
+              <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img
+              src="https://i.postimg.cc/PJC9GrMb/logout.png"
+              class="settings-icon"
+            />
+            <a href="#"
+              >Logout
+              <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="left-side">
+        <div class="side-wrapper">
+          <div class="side-menu">
+            <a href="#" class="active"><i class="fa-solid fa-house"></i>HOME</a>
+            <a href="#"><i class="fa-solid fa-house"></i>SHORTS</a>
+            <button (click)="toggleSubscribedContent()">Subscribe</button>
+          </div>
+        </div>
+        <div class="side-wrapper">
+          <div class="side-title">You</div>
+          <div class="side-menu">
+            <a href="#"><i class="fa-solid fa-house"></i>History</a>
+            <a href="#"><i class="fa-solid fa-house"></i>Watch Later</a>
+            <a href="#"> <i class="fa-solid fa-house"></i>Liked Videos</a>
+          </div>
+        </div>
+        <div class="side-wrapper">
+          <div class="side-title">Explore</div>
+
+          <div class="side-menu">
+            <a href="#" *ngFor="let menuItem of menuItems">
+              <i [class]="menuItem.class"></i>{{ menuItem.label }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="main-container">
+          <div class="main-header">
+            <div class="header-menu">
+              <a
+                href="#"
+                class="main-header-link"
+                *ngFor="let menuItem of headerMenuItems"
+                [class.active]="menuItem.isActive"
+              >
+                {{ menuItem.label }}
+              </a>
+            </div>
+          </div>
+          <div class="content-wrapper">
+            <div class="content-section">
+              <div class="apps-card">
+                <div class="app-card" *ngFor="let video of videoDetails">
+                  <div
+                    *ngIf="
+                      !showOnlySubscribed ||
+                      (showOnlySubscribed && video.isSubscribed)
+                    "
+                  >
+                    <a href="#">
+                      <img [src]="video.imageUrl" />
+                    </a>
+                    <div class="flex-div">
+                      <div class="chanel-img">
+                        <img [src]="video.userProfileLink" />
+                      </div>
+                      <div class="vid-info">
+                        <a href="#">{{ video.title }}</a>
+                        <div class="content-text">
+                          <p>{{ video.channelName }}</p>
+                          <p>{{ video.views }} .{{ video.daysAgo }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
