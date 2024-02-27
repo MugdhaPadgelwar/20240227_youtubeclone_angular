@@ -1,0 +1,54 @@
+.left-side {
+  flex-basis: 240px;
+
+  padding: 25px 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: 0.5s;
+}
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.side-menu a {
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.side-wrapper + .side-wrapper {
+  margin-top: 20px;
+}
+
+.side-menu a.active {
+  color: #000;
+  background-color: #e5e5e5;
+}
+
+.side-menu a.hover {
+  background-color: #999ba5;
+}
+
+.side-menu i {
+  width: 30px;
+  color: white;
+  margin-right: 8px;
+}
+
+.side-title {
+  font-size: 17px;
+  color: rgba(113 119 144/78%);
+  margin-bottom: 14px;
+}
+
+.left-side:hover {
+  overflow: auto;
+}

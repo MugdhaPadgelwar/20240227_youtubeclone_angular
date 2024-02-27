@@ -1,16 +1,12 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-/>
 <app-navbar></app-navbar>
 
 <div class="wrapper">
   <div class="left-side">
     <div class="side-wrapper">
       <div class="side-menu">
-        <a href="#" class="active"><i class="fa-solid fa-house"></i>HOME</a>
+        <a href="#"><i class="fa-solid fa-house"></i>HOME</a>
         <a href="#"><i class="fa-solid fa-house"></i>SHORTS</a>
-        <a routerLink="/subscribe"
+        <a href="#" class="active"
           ><i class="fa-solid fa-house"></i>SUBSCRIBE</a
         >
       </div>
@@ -49,7 +45,27 @@
       </div>
       <div class="content-wrapper">
         <div class="content-section">
-          <app-postcard></app-postcard>
+          <div class="apps-card">
+            <div class="app-card" *ngFor="let video of videoDetails">
+              <div>
+                <a href="#">
+                  <img [src]="video.imageUrl" />
+                </a>
+                <div class="flex-div">
+                  <div class="chanel-img">
+                    <img [src]="video.userProfileLink" />
+                  </div>
+                  <div class="vid-info">
+                    <a href="#">{{ video.title }}</a>
+                    <div class="content-text">
+                      <p>{{ video.channelName }}</p>
+                      <p>{{ video.views }} .{{ video.daysAgo }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

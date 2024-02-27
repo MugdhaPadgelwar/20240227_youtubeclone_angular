@@ -1,0 +1,26 @@
+<div class="left-side">
+  <div class="side-wrapper">
+    <div class="side-menu">
+      <a href="#" class="active"><i class="fa-solid fa-house"></i>HOME</a>
+      <a href="#"><i class="fa-solid fa-house"></i>SHORTS</a>
+      <a href="#"><i class="fa-solid fa-house"></i>SUBSCRIBE</a>
+    </div>
+  </div>
+  <div class="side-wrapper">
+    <div class="side-title">You</div>
+    <div class="side-menu">
+      <a href="#"><i class="fa-solid fa-house"></i>History</a>
+      <a href="#"><i class="fa-solid fa-house"></i>Watch Later</a>
+      <a href="#"> <i class="fa-solid fa-house"></i>Liked Videos</a>
+    </div>
+  </div>
+  <div class="side-wrapper">
+    <div class="side-title">Explore</div>
+
+    <div class="side-menu">
+      <a href="#" *ngFor="let menuItem of menuItems">
+        <i [class]="menuItem.class"></i>{{ menuItem.label }}
+      </a>
+    </div>
+  </div>
+</div>
